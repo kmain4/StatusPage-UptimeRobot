@@ -40,7 +40,7 @@
          var operationalText = '';
          var html = '';
          var element = '';
-
+         
          function jsonUptimeRobotApi(data) {
              data.monitors.monitor.forEach(function(monitor) {
                  if (categories.Websites.sensors.indexOf(monitor.id) >= 0) {
@@ -64,10 +64,10 @@
                  operationalText = '<div class="alert alert-danger">Not all systems are operational.</div>';
              }
              $(".section-status").replaceWith(operationalText);
-
-
-
-
+         
+         
+         
+         
              monitorsData.forEach(function(monitor) {
                  var statusText = '';
                  switch (monitor.status) {
@@ -85,7 +85,7 @@
                          operational = false;
                          break;
                      case "9":
-
+         
                          statusText = '<small class="text-component-1 reds">Not Operational</small>';
                          operational = false;
                          break;
@@ -110,9 +110,9 @@
                  $(element).append(html);
              });
          }
-
+         
          $(document).ready(function() {
-             var apiKey = "XXXXXXXXXXX"
+             var apiKey = "XXXXXXXXXXXXXXXX"
              var url = "https://api.uptimerobot.com/getMonitors?apiKey=" + apiKey + "&customUptimeRatio=1-7-30-365&format=json&logs=1";
              $.ajax({
                  url: url,
@@ -245,76 +245,99 @@
    </head>
    <body class="status-page ">
       <div class="container">
-         <div class="section-messages">
-         </div>
-         <div class="section-status">
-            <div class="alert alert-success"></div>
-         </div>
-         <div class="section-components">
-            <ul class="list-group components">
-               <li class="list-group-item group-name">
-                  <strong>Websites</strong>
-                  <div class="pull-right">
-                     <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
-                  </div>
-               </li>
-               <div class="group-items">
-                  <websiteCat>
-                  </websiteCat>
+      <div class="section-messages">
+      </div>
+      <div class="section-status">
+         <div class="alert alert-success"></div>
+      </div>
+      <div class="section-components">
+         <ul class="list-group components">
+            <li class="list-group-item group-name">
+               <strong>Websites</strong>
+               <div class="pull-right">
+                  <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
                </div>
-            </ul>
-            <ul class="list-group components">
-               <li class="list-group-item group-name">
-                  <strong>Plex</strong>
-                  <div class="pull-right">
-                     <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
-                  </div>
-               </li>
-               <div class="group-items">
-                  <plexCat>
-                  </plexCat>
+            </li>
+            <div class="group-items">
+               <websiteCat>
+               </websiteCat>
+            </div>
+         </ul>
+         <ul class="list-group components">
+            <li class="list-group-item group-name">
+               <strong>Plex</strong>
+               <div class="pull-right">
+                  <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
                </div>
-            </ul>
-            <ul class="list-group components">
-               <li class="list-group-item group-name">
-                  <strong>Services</strong>
-                  <div class="pull-right">
-                     <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
-                  </div>
-               </li>
-               <div class="group-items">
-                  <servicesCat>
-                  </servicesCat>
+            </li>
+            <div class="group-items">
+               <plexCat>
+               </plexCat>
+            </div>
+         </ul>
+         <ul class="list-group components">
+            <li class="list-group-item group-name">
+               <strong>Services</strong>
+               <div class="pull-right">
+                  <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
                </div>
-            </ul>
-         </div>
-         <div class="section-timeline">
-            <h1>Today's Incidents</h1>
-            <h4>28th June 2016</h4>
-            <div class="timeline">
-               <div class="content-wrapper">
-                  <div class="moment first">
-                     <div class="row event clearfix">
-                        <div class="col-sm-1">
-                           <div class="status-icon status-4" data-toggle="tooltip" title="Fixed" data-placement="left">
-                              <i class="icon ion-checkmark greens"></i>
-                           </div>
+            </li>
+            <div class="group-items">
+               <servicesCat>
+               </servicesCat>
+            </div>
+         </ul>
+      </div>
+      <div class="section-timeline">
+      <h1>Recent Reports</h1>
+      <h4>28th June 2016</h4>
+      <div class="timeline">
+         <div class="content-wrapper">
+            <div class="moment first">
+               <div class="row event clearfix">
+                  <div class="col-sm-1">
+                     <div class="status-icon status-4" data-toggle="tooltip" title="Fixed" data-placement="left">
+                        <i class="icon ion-checkmark greens"></i>
+                     </div>
+                  </div>
+                  <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
+                     <div class="panel panel-message incident">
+                        <div class="panel-heading">
+                           <strong>Plex Media Server Available</strong>
+                           <br>
+                           <small class="date">
+                           <a href="https://demo.cachethq.io/incident/1" class="links"><abbr class="timeago" data-toggle="tooltip" data-placement="right" title="Tuesday 28th June 2016 22:30:01" data-timeago="2016-06-28T22:30:01+0100"></abbr></a>
+                           </small>
                         </div>
-                        <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
-                           <div class="panel panel-message incident">
-                              <div class="panel-heading">
-                                 <strong>Plex Media Server Unavailable</strong>
-                                 <br>
-                                 <small class="date">
-                                 <a href="https://demo.cachethq.io/incident/1" class="links"><abbr class="timeago" data-toggle="tooltip" data-placement="right" title="Tuesday 28th June 2016 22:30:01" data-timeago="2016-06-28T22:30:01+0100"></abbr></a>
-                                 </small>
-                              </div>
-                              <div class="panel-body markdown-body">
-                                 <h1>Of course it does!</h1>
-                                 <p>What kind of web application doesn't these days?</p>
-                                 <h2>Headers are fun aren't they</h2>
-                                 <p>It's <em>exactly</em> why we need Markdown. For <strong>emphasis</strong> and such.</p>
-                              </div>
+                        <div class="panel-body markdown-body">
+                           <p>Random excuse here.</p>
+                        </div>
+                     </div>
+                     <div class="col-sm-1">
+                        <div class="status-icon status-4" data-toggle="tooltip" title="Fixed" data-placement="left">
+                           <i class="icon ion-x reds"></i>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="moment ">
+                  <div class="row event clearfix">
+                     <div class="col-sm-1">
+                        <div class="status-icon status-2" data-toggle="tooltip" title="Identified" data-placement="left">
+                           <i class="icon ion-alert reds"></i>
+                        </div>
+                     </div>
+                     <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0">
+                        <div class="panel panel-message incident">
+                           <div class="panel-heading">
+                              <strong>Plex Media Server Unavailable</strong>
+                              <br>
+                              <small class="date">
+                              <abbr class="timeago" data-toggle="tooltip" data-placement="right" title="Tuesday 28th June 2016 23:30:02" data-timeago="2016-06-28T23:30:02+0100"></abbr>
+                              </small>
+                           </div>
+                           <div class="panel-body markdown-body">
+                              <p>We've identified the problem. Our engineers are currently looking at it.</p>
                            </div>
                         </div>
                      </div>
