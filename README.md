@@ -32,6 +32,9 @@ Save `status.html`:
 https://raw.githubusercontent.com/kmain4/StatusPage-UptimeRobot/master/status.html
 ````
 
+Edit the configuration between lines `185` and `205`. Add your Sensor's IDs to the categories and your API key on line `202`. 
+*Note! There is a security vulnerability that currently exposes your API key if you view the source code of the status page. This will be addressed when this project is more mature, for now it is intended for a simple status page for a homelab and for testing purposes ONLY. BE WARNED!
+
 Head over to GitHub and create a new repository named `username.github.io`, where username is your username (or organization name) on GitHub. *If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right!*
 
 Finally, simply push `status.html` to your repository and rename it to `index.html`.
