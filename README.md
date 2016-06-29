@@ -14,7 +14,7 @@ This project is designed to be a drag-and-drop solution used in conjunction with
 ### Version
 1.0.2
 
-### Tech
+### Included Projects and Libraries
 
 `StatusPage-UptimeRobot` uses a number of projects:
 
