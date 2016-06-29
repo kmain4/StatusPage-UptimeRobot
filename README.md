@@ -10,7 +10,6 @@ This project is designed to be a drag-and-drop solution used in conjunction with
 
 *Do not expect advanced features within this package due to the flat, one HTML file limitation!*
 
-
 ### Version
 1.0.2
 
