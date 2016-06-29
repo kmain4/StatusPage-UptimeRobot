@@ -38,7 +38,7 @@ Add your Monitors' IDs to the `categories` object on line `188`. You can find yo
 
 Example: `https://uptimerobot.com/dashboard.php#888246374` The ID for this Monitor is `888246374`.
 
-Add your API key on line `202`.  You can find your Monitor ID's 
+Add your API key on line `202`. 
 
 *Note! There is a security vulnerability that currently exposes your API key if you view the source code of the status page. This will be addressed when this project is more mature, for now it is intended for a simple status page for a homelab and for testing purposes ONLY. BE WARNED!*
 
