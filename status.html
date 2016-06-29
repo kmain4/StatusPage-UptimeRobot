@@ -141,7 +141,7 @@
             <li class="list-group-item group-name">
                <strong>Websites</strong>
                <div class="pull-right">
-                  <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
+                  <websitesStatus><i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i></websitesStatus>
                </div>
             </li>
             <div class="group-items">
@@ -153,7 +153,7 @@
             <li class="list-group-item group-name">
                <strong>Plex</strong>
                <div class="pull-right">
-                  <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
+                  <plexStatus><i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i></plexStatus>
                </div>
             </li>
             <div class="group-items">
@@ -165,7 +165,7 @@
             <li class="list-group-item group-name">
                <strong>Services</strong>
                <div class="pull-right">
-                  <i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i>
+                  <servicesStatus><i class="ion ion-ios-circle-filled text-component-1 greens" data-toggle="tooltip" title="Operational"></i></servicesStatus>
                </div>
             </li>
             <div class="group-items">
@@ -187,16 +187,19 @@
 ///////////////////////////////////////////////
 var categories = {
     "Websites": {
-        "sensors": ["777688716"]
+        "sensors": ["777688716"],
+        "status": "2"
     },
     "Plex": {
-        "sensors": ["777693990", "777893558"]
+        "sensors": ["777693990", "777893558"],
+        "status": "2"
     },
     "Services": {
-        "sensors": ["777864590", "777864593", "777864591", "777899388"]
+        "sensors": ["777864590", "777864593", "777864591", "777899388"],
+        "status": "2"
     }
 }
-var apiKey = "INSERT-APIKEYHERE"
+var apiKey = "u319327-9019ef360fb0684cd475b324"
 ///////////////////////////////////////////////
 // END CONFIG 
 ///////////////////////////////////////////////
@@ -217,15 +220,24 @@ function jsonUptimeRobotApi(data) {
     data.monitors.monitor.forEach(function(monitor) {
         if (categories.Websites.sensors.indexOf(monitor.id) >= 0) {
             monitor.category = "Websites";
+            if (monitor.status == "8" || monitor.status == "9") {
+              operational = false;
+              categories.Websites.status = 1;
+          }
         }
         if (categories.Plex.sensors.indexOf(monitor.id) >= 0) {
             monitor.category = "Plex";
+            if (monitor.status == "8" || monitor.status == "9") {
+              operational = false;
+              categories.Plex.status = 1;
+          }
         }
         if (categories.Services.sensors.indexOf(monitor.id) >= 0) {
             monitor.category = "Services";
-        }
-        if (monitor.status == "8" || monitor.status == "9") {
-            operational = false;
+            if (monitor.status == "8" || monitor.status == "9") {
+              operational = false;
+              categories.Services.status = 1;
+          }
         }
         monitorsData.push(monitor);
     });
@@ -238,6 +250,32 @@ function jsonUptimeRobotApi(data) {
     }
     $(".section-status").replaceWith(operationalText);
 
+    switch (categories.Websites.status) {
+      case "1":
+        $("websitesStatus").replaceWith('<i class="ion ion-ios-circle-filled text-component-1 reds"></i>');
+        break;
+      case "2":
+        $("websitesStatus").replaceWith('<i class="ion ion-ios-circle-filled text-component-1 greens"></i>');
+        break;
+      }
+
+    switch (categories.Plex.status) {
+      case "1":
+        $("plexStatus").replaceWith('<i class="ion ion-ios-circle-filled text-component-1 reds"></i>');
+        break;
+      case "2":
+        $("plexStatus").replaceWith('<i class="ion ion-ios-circle-filled text-component-1 greens"></i>');
+        break;
+      }
+
+    switch (categories.Services.status) {
+      case "1":
+        $("servicesStatus").replaceWith('<i class="ion ion-ios-circle-filled text-component-1 reds"></i>');
+        break;
+      case "2":
+        $("servicesStatus").replaceWith('<i class="ion ion-ios-circle-filled text-component-1 greens"></i>');
+        break;
+      }
 
 
     //determine status of each monitor
@@ -346,10 +384,12 @@ function jsonUptimeRobotApi(data) {
 
             var logType = '';
             var iconType = '';
+            var serviceText = '';
             switch (log.type) {
                 case "1":
                     logType = 'Unavailable';
                     iconType = '<i class="icon ion-alert reds"></i>';
+                    serviceText = '<div class="panel-body"> ' + getResult() + ' </div>';
                     break;
                 case "2":
                     logType = 'Available';
@@ -357,18 +397,17 @@ function jsonUptimeRobotApi(data) {
                     break;
                 case "99":
                     logType = 'Paused';
-                    iconType = '<i class="icon ion-checkmark blues"></i>';
+                    iconType = '<i class="icon ion-help blues"></i>';
                     break;
                 case "98":
                     logType = 'Monitor Created';
-                    iconType = '<i class="icon ion-questionmark yellows"></i>';
+                    iconType = '<i class="icon ion-plus-round greens"></i>';
                     break;
             }
-            logHTML = '<div class="col-sm-1"> <div class="status-icon status-4" data-toggle="tooltip" title="Fixed" data-placement="left"> ' + iconType + ' </div> </div> <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0"> <div class="panel panel-message incident"> <div class="panel-heading"> <strong>' + log.monitor + ' ' + logType + '</strong> <br> <small class="date"> ' + log.datetime.getHours() + ':' + log.datetime.getMinutes() + ' </small> </div> <div class="panel-body markdown-body"> <p>Service changed status.</p> </div> </div> </div>';
-            $(element).append(logHTML);
+            logHTML = '<div class="col-sm-1"> <div class="status-icon status-4" data-toggle="tooltip" title="Fixed" data-placement="left"> ' + ' </div> </div> <div class="col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-0"> <div class="panel panel-message incident"> <div class="panel-heading"> <strong>' + iconType + "     " + log.monitor + ' ' + logType + '</strong> <br> <small class="date"> ' + formatTime(log.datetime) + ' </small> </div>  ' + serviceText + ' </div> </div>';
+            $('timeline').append(logHTML);
         });
     }
-    console.log(oldLogs);
     if (oldLogs.length == 0) {
         //No old logs!
     } else {
