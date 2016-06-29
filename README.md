@@ -1,6 +1,3 @@
-![](https://cloud.githubusercontent.com/assets/8865327/16458877/c490ebd2-3dee-11e6-956f-871d57679b7c.PNG)
-![](https://cloud.githubusercontent.com/assets/8865327/16458880/ca751744-3dee-11e6-8ed9-1940763880c0.PNG)
-
 # StatusPage-UptimeRobot
 
 `StatusPage-UptimeRobot` is a simple flat HTML file that retrieve's [UptimeRobot](https://www.uptimerobot.com "Uptime Robot's Homepage")'s sensors via their API and turns it into a professional service status page .
@@ -50,3 +47,10 @@ Head over to GitHub and create a new repository named `username.github.io`, wher
 Finally, simply push `status.html` to your repository and rename it to `index.html`.
 
 You can also use GitHub.io pages with custom domains like `status.constoso.com`. [Read more about it here.](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/)
+
+
+### Images
+
+![](https://cloud.githubusercontent.com/assets/8865327/16458877/c490ebd2-3dee-11e6-956f-871d57679b7c.PNG)
+
+![](https://cloud.githubusercontent.com/assets/8865327/16458880/ca751744-3dee-11e6-8ed9-1940763880c0.PNG)
