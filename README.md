@@ -39,7 +39,7 @@ Example: `https://uptimerobot.com/dashboard.php#888246374` The ID for this Monit
 
 Head over to GitHub and create a new repository named `username.github.io`, where username is your username (or organization name) on GitHub. *If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right!*
 
-Finally, simply push `status.html` to your repository and rename it to `index.html`.
+Finally, simply push `status.php` to your repository and rename it to `index.php`.
 
 You can also use GitHub.io pages with custom domains like `status.constoso.com`. [Read more about it here.](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/)
 
