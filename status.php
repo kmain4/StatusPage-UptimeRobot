@@ -1,3 +1,30 @@
+ <?php
+        echo "
+        <script type=\"text/javascript\">
+         ///////////////////////////////////////////////
+         // CONFIG 
+         ///////////////////////////////////////////////
+         var categories = {
+             "Websites": {
+                 "sensors": ["777688716"],
+                 "status": "2"
+             },
+             "Plex": {
+                 "sensors": ["777693990", "777893558"],
+                 "status": "2"
+             },
+             "Services": {
+                 "sensors": ["777864590", "777864593", "777864591", "777899388"],
+                 "status": "2"
+             }
+         }
+         var apiKey = "INSERT-APIKEYHERE"
+         ///////////////////////////////////////////////
+         // END CONFIG 
+         ///////////////////////////////////////////////
+         </script>
+        ";
+  ?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -182,28 +209,6 @@
     </div>
    </body>
 <script type="text/javascript">
-///////////////////////////////////////////////
-// CONFIG 
-///////////////////////////////////////////////
-var categories = {
-    "Websites": {
-        "sensors": ["777688716"],
-        "status": "2"
-    },
-    "Plex": {
-        "sensors": ["777693990", "777893558"],
-        "status": "2"
-    },
-    "Services": {
-        "sensors": ["777864590", "777864593", "777864591", "777899388"],
-        "status": "2"
-    }
-}
-var apiKey = "INSERT-APIKEYHERE"
-///////////////////////////////////////////////
-// END CONFIG 
-///////////////////////////////////////////////
-
 //init variables
 var monitorsData = []
 var operational = true;
