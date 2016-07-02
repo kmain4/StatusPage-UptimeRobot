@@ -26,9 +26,9 @@ This project is designed to be a drag-and-drop solution used in conjunction with
 
 `StatusPage-UptimeRobot` will run on any web-server that is capable of serving the HTML file. It is reccomended to host outside of your network for availability.
 
-Save `status.html`:
+Save `status.php`:
 ```
-https://raw.githubusercontent.com/kmain4/StatusPage-UptimeRobot/master/status.html
+https://raw.githubusercontent.com/kmain4/StatusPage-UptimeRobot/master/status.php
 ````
 
 Edit the configuration at the top of the file. 
